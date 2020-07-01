@@ -1,0 +1,54 @@
+
+
+<div class="container">
+
+  <header class="jumbotron my-4">
+   <!--   <h1 class="display-3">{{travelHead}}</h1>
+      <p class="lead">{{travelHt}}</p>
+      <a href="#" class="btn btn-primary btn-lg">{{travelBtn}}</a>-->
+  </header>
+
+  <div>
+    <div class="container1">  
+      <div class="form-group"> 
+
+        <label class="form-label">Destination</label> 
+        <input class="form-control" type="text"/>
+
+        <label class="form-label">Check In</label> 
+        <input class="form-control" type="date"/>
+
+        <label class="form-label">Check Out</label> 
+        <input class="form-control" type="date"/>
+        
+      </div> 
+
+      <div class="form-group">  
+        <button  (click)="updateSearch()" class="btn btn-dark">Search</button>  
+      </div>  
+
+      <p>  
+        {{ location.value }} 
+      </p>  
+
+    </div>  
+
+    <div class="row text-center" id="cardst">
+      <div class="col-lg-4 col-md-8 col-sm-12 m-3" *ngFor="let info of dest">
+        <div class="card">
+          <img class="card-img-top" src={{info.img}} alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{info.destination}}</h4>
+            <p class="card-text">{{info.description}}</p>
+            <p>{{info.startDate}}</p>
+            <p>{{info.duration}}</p>
+            <p>{{info.price | currency}}</p>
+           
+            <!--<a href="#" class="btn btn-primary">{{info.Btn}}</a>-->
+            <button (click)="addToCart(info)" routerLink="/cart">{{info.Btn}}</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
